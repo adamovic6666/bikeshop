@@ -1,0 +1,65 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Montserrat', sans-serif;;
+}
+
+:root {
+    --front-background: #fafafa;
+    --background-color-1: #ebf2f5;
+    --background-color-2: #f7f4ed;
+    --color-red: #990a0c;
+    --color-primary: #000;
+    --color-scroll-up: #fff;
+    --header-background: rgba(255, 255, 255, 0.705);
+    --filter-invert: invert(0);
+    --default-font-size: 1.5rem;
+    --opacity: 1;
+    --mobile-navigation-color: black;
+}
+
+html[dark-mode] {
+    --front-background: #1b1c22;
+    --color-red: #ff4c68;
+    --background-color-1: #323541;
+    --background-color-2: #4c4c53;
+    --color-primary: #fff;
+    --color-scroll-up: #000;
+    --header-background:#191a1fb9;
+    --filter-invert: invert(100%);
+    --default-font-size: 1.5rem;
+    --opacity: .1;
+    --mobile-navigation-color: #191a1f;
+}
+
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+    transition: all .7s !important;
+    transition-delay: 0 !important;
+}
+
+html {
+
+    font-size: 50%;
+    scroll-behavior: smooth;
+    
+    @include forLargeScreens(900) {
+        font-size: 56.25%;
+    }
+
+    @include forLargeScreens(900) {
+        font-size: 62.5%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    background-color: var(--front-background);
+    position: relative;
+}

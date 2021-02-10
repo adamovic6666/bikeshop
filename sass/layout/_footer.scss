@@ -1,0 +1,16 @@
+.footer {
+    background-color: black;
+    color: white;
+    height: 8rem;
+    max-width: $default-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__link {
+        color: white;
+        font-size: $default-font-size;
+        text-decoration: none;
+    }
+}

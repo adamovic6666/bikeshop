@@ -1,0 +1,23 @@
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin display-flex--column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin forScreensSmallerThan($media) {
+
+    @media (max-width: $media/16+em) { @content; }
+    
+}
+
+@mixin forLargeScreens($media) {
+
+    @media (min-width: $media/16+em) { @content; }
+    
+}

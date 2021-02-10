@@ -1,0 +1,99 @@
+.grid--services {
+
+    grid-template-rows: 1fr;
+    padding: 3rem 4rem;
+
+    @include forLargeScreens(900) {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+        padding-bottom: 6rem;
+    }
+
+    @include forLargeScreens(1240) {
+        padding: 6rem 0 0;
+    }
+
+}
+
+.services {
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--color-primary);
+        font-weight: 700;
+        max-width: 90rem;
+        width: 100%;
+        margin: 0 auto;
+
+        &:nth-child(even) {
+            color: var(--header-background);
+            filter: invert(1);
+        }
+        
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        @include forLargeScreens(1000) {
+            flex-direction: row;
+        }
+    }
+
+    &__hero {
+
+        display: none;
+
+        @include forLargeScreens(1240) {
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 15vw;
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 4rem;
+
+            span {
+                color: var(--background-color-2);
+                opacity: var(--opacity);
+                line-height: .73;
+            }
+        }
+    }
+
+    &__service {
+        align-self: center;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    &__price {
+        text-align: center;
+        //color: var(--color-red);
+        position: relative;
+        font-size: var(--default-font-size);
+
+        &::after {
+            content: "-";
+            position: absolute;
+            //color: var(--color-red);
+            left: -2rem;
+
+            @include forLargeScreens(1300) {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: "-";
+            position: absolute;
+           // color: var(--color-red);
+            right: -2rem;
+
+            @include forLargeScreens(1000) {
+                display: none;
+            }
+        }
+    }
+}

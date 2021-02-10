@@ -1,0 +1,23 @@
+.scroll-up {
+    position: fixed;
+    bottom: 2rem;
+    right: -2500px;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-scroll-up);
+    z-index: 3;
+    transition: all 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    opacity: 0;
+
+    &--open {
+        right: calc((100vw - 124rem) / 5);
+        opacity: 1;
+    }
+}

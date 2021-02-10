@@ -1,0 +1,11 @@
+.grid {
+
+    //max-width: 90vw;
+    margin: 0 auto;
+    height: auto;
+    display: grid;
+
+    @include forLargeScreens(900) {
+        max-width: $default-width;
+    }
+}

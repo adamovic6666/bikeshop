@@ -1,0 +1,27 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+
+        font-family: inherit;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .3s;
+        position: relative;
+        padding: 1.5rem 4rem;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        line-height: inherit;
+        background-color: var(--color-red);
+        color: #fff;
+        font-size: var(--default-font-size);
+        display: inline-block;
+
+    
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+}

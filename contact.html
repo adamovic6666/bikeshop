@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>KONTAKT</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+</head>
+<body>
+    
+    <div class="backdrop"></div>
+    <a class="scroll-up" href="#top">&#11165;</a>
+    <header class="header" id="top">
+        <nav class="nav nav--mobile">
+            <div class="nav__logo-container">
+                <img src="assets/logo-b.png" alt="logo" class="nav__logo">
+            </div>
+            <div class="nav__modes nav__modes--mobile">
+                <div class="nav__mode">
+                    <img src="assets/half-moon.png" alt="" class="nav__mode-image nav__mode-image--mobile">
+                </div>
+            </div>
+        </nav>
+        <div class="nav__hamburger">
+            <span class="nav__hamburger--layer"></span>
+            <span class="nav__hamburger--layer"></span>
+            <span class="nav__hamburger--layer"></span>
+        </div>
+        <nav class="nav__mobile-navigation">
+            <ul class="nav__mobile-navigation-items">
+                <a href="index.html" class="nav__mobile-navigation-item">POČETNA</a>
+                <a href="#" class="nav__mobile-navigation-item nav__mobile-navigation-item--active">KONTAKT</a>
+                <a href="services.html" class="nav__mobile-navigation-item">SERVIS</a>
+                <a href="about.html" class="nav__mobile-navigation-item">O NAMA</a>
+            </ul>
+            <div class="nav__mobile-links">
+                <a href="https://www.instagram.com/herrzekaz/" target="_blank" class="nav__mobile-link">
+                    <img src="assets/instagram.png" alt="instagram">
+                </a>
+                <a href="https://www.facebook.com/danilo.zekaz" target="_blank" class="nav__mobile-link">
+                    <img src="assets/facebook.png" alt="facebook">
+                </a>
+            </div>
+        </nav>
+        <nav class="nav nav--desktop">
+            <div class="nav__logo-container">
+                <img src="assets/logo-b.png" alt="logo" class="nav__logo">
+            </div>
+            <ul class="nav__items">
+                <a href="index.html" class="nav__item">POČETNA</a>
+                <a href="services.html" class="nav__item">SERVIS</a>
+                <a href="about.html" class="nav__item">O NAMA</a>
+                <a href="#" class="nav__item nav__item--active">KONTAKT</a>
+            </ul>
+            <div class="nav__modes">
+                <div class="nav__mode">
+                    <img src="assets/half-moon.png" alt="" class="nav__mode-image nav__mode-image--desktop">
+                </div>
+            </div>
+            <div class="nav__links">
+                <a href="https://www.instagram.com/herrzekaz/" target="_blank" class="nav__link">
+                    <img src="assets/instagram.png" alt="instagram">
+                </a>
+                <a href="https://www.facebook.com/danilo.zekaz" target="_blank" class="nav__link">
+                    <img src="assets/facebook.png" alt="facebook">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="grid grid--contact">
+        <h1 class="heading heading--primary contact__heading">Kontaktirajte nas</h1>
+        <div class="contact__form">
+            <form action="#" class="form">
+                <div class="form__group">
+                    <input type="text" class="form__input" id="name" required>
+                    <label for="name" class="form__label">Ime i prezime</label>
+                </div>
+
+                <div class="form__group">
+                    <input type="email" class="form__input" id="email" required>
+                    <label for="email" class="form__label">Email adresa</label>
+                </div>
+                <div class="form__group">
+                    <textarea name="textarea" class="form__input form__input-textarea" id="textarea" cols="30" rows="10" required></textarea>
+                    <label for="textarea" class="form__label">Poruka</label>
+                </div>
+                <div class="form__group">
+                    <a href="#" class="btn">Potvrdi</a>
+                </div>
+            </form>
+        </div>
+        <div class="contact__map"></div>
+        <p class="contact__hero">
+            <span>K</span>
+            <span>O</span>
+            <span>N</span>
+            <span>T</span>
+            <span>A</span>
+            <span>K</span>
+            <span>T</span>
+        </p>
+    </div>
+
+
+    <footer class="footer">
+        <a href="#" class="footer__link">www.zekabiciklservis.com</a>
+    </footer>
+    <script src="js/shared.js"></script>
+    <script src="js/contact.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtCP-lUqWRm18SLrexytjWcmsxouCcFw4&callback=initMap"></script>
+
+</body>
+</html>
