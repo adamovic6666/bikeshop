@@ -16,15 +16,14 @@ document.querySelectorAll('.servicing__image').forEach(image => {
 
 const setImage = () => {
 
-    const maingImg = localStorage.getItem('mainImage');
-    console.log(maingImg)
-    if(maingImg && maingImg !== "url('assets/bike-b.png')") {
-        homeImage.style.backgroundImage = maingImg;
+    const mode = localStorage.getItem('mode');
+
+    if(mode === "dark-mode") {
         let glow = document.createElement('div');
         glow.classList.add('glow');
         homeImage.append(glow);
+        return;
     } else {
-        homeImage.style.backgroundImage = "url('assets/bike-w.png')";
         let glow = document.querySelector('.glow');
         glow.remove();
     }

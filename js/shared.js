@@ -68,6 +68,8 @@ const trans = image => {
 // CHANGE IMAGE ON TOGGLE DARK/LIGHT MODE
 const changeImage = () => {
 
+    const mode = localStorage.getItem('mode');
+
     modeImages.forEach(image => {
         image.src = image.src.includes("assets/half-moon.png") ? 
         "assets/sunny.png": 
@@ -80,20 +82,30 @@ const changeImage = () => {
         "assets/logo-b.png";
     })
 
+    let glow = document.querySelector('.glow');
+
     if(homeImage) {
-        if(homeImage.style.backgroundImage.includes("assets/bike-w.png")) {
-            homeImage.style.backgroundImage = "url('assets/bike-b.png')";
+        if(glow) {
+            console.log("glow")
+            glow.remove();
+        } else {
             let glow = document.createElement('div');
             glow.classList.add('glow');
             homeImage.append(glow);
-        } else {
-            homeImage.style.backgroundImage = "url('assets/bike-w.png')";
-            let glow = document.querySelector('.glow');
-            glow.remove();
         }
     } else {
         return;
     }
+
+
+        // if(!homeImage || homeImage && (mode === "dark-mode" || !mode)) {
+    //     let glow = document.createElement('div');
+    //     glow.classList.add('glow');
+    //     homeImage.append(glow);
+    // } else {
+    //     let glow = document.querySelector('.glow');
+    //     glow.remove();
+    // }
 } 
 
 const setLogo = () => {

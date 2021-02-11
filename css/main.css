@@ -105,6 +105,14 @@ body {
 .heading--secondary {
   font-size: 3rem; }
 
+.heading--tertiary {
+  font-size: 3rem;
+  color: var(--color-red);
+  text-align: center;
+  margin-bottom: 4rem; }
+  .heading--tertiary:not(:first-child) {
+    margin-top: 2rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -425,7 +433,7 @@ body {
       width: 100%; }
 
 .grid--index {
-  grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, 50vh)) max-content 50vh;
+  grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, max-content)) max-content 50vh;
   grid-template-columns: [full-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [full-end];
   grid-row-gap: 5rem; }
   @media (min-width: 26.5625em) {
@@ -454,6 +462,7 @@ body {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     z-index: 2;
+    background-image: url("../assets/bike-w.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1047,10 +1056,10 @@ body {
   width: 100%;
   margin: 0 auto; }
   .services__box:nth-child(even) {
-    color: var(--header-background);
+    color: var(--front-background);
     filter: invert(1); }
   .services__box:not(:last-child) {
-    margin-bottom: 2rem; }
+    margin-bottom: 2.5rem; }
   @media (min-width: 62.5em) {
     .services__box {
       flex-direction: row; } }

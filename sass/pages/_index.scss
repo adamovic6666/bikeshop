@@ -1,6 +1,6 @@
 .grid--index {
 
-    grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, 50vh)) max-content 50vh;
+    grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, max-content)) max-content 50vh;
     grid-template-columns: [full-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end])[full-end];
     grid-row-gap: 5rem;
 
@@ -38,7 +38,7 @@
         grid-column: 1 / -1;
         grid-row: 2 / 3;
         z-index: 2;
-        //background-image: url("../assets/bike-w.png");
+        background-image: url("../assets/bike-w.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

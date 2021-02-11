@@ -33,3 +33,14 @@ body {
 .heading--secondary {
     font-size: 3rem;
 }
+
+.heading--tertiary {
+    font-size: 3rem;
+    color: var(--color-red);
+    text-align: center;
+    margin-bottom: 4rem;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+}
