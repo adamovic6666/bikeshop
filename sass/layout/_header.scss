@@ -190,9 +190,18 @@
         text-decoration: none;
         cursor: pointer;
         color: var(--color-primary);
+        transition: .4s all;
+        opacity: .9;
+
 
         &--active {
             color: var(--color-red);
+            opacity: 1;
+        }
+
+        &:hover,
+        &:active {
+            opacity: 1;
         }
     }
 
@@ -217,6 +226,7 @@
 
         img {
             height: 100%;
+            filter: invert(1);
         }
     }
 

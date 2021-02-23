@@ -8,7 +8,6 @@ const backdrop = document.querySelector('.backdrop');
 const infoBox = document.querySelector('.contact__map img');
 const navItems = Array.from(document.querySelectorAll('.nav__mobile-navigation-item'));
 
-//console.log(infoBox) // PROMISE ?
 
 const toggleMobileNavigation = () => {
     backdrop.classList.toggle('backdrop--open');
@@ -34,13 +33,15 @@ modeImages.forEach(image => {
         if(document.documentElement.hasAttribute("dark-mode")) {
             localStorage.setItem("mode", "dark-mode");
             localStorage.setItem("mainImage", "url('assets/bike-w.png')");
-            localStorage.setItem("modeImage", "assets/sunny.png");
+            localStorage.setItem("modeImage", "assets/half-moon.png");
             localStorage.setItem("logo", "assets/logo-w.png");
+            setGoogleMapDarkMode();
         } else {
             localStorage.setItem("mode", "light-mode");
             localStorage.setItem("mainImage", "url('assets/bike-b.png')");
-            localStorage.setItem("modeImage", "assets/half-moon.png");
+            localStorage.setItem("modeImage", "assets/sunny.png");
             localStorage.setItem("logo", "assets/logo-b.png");
+            setGoogleMap();
         }
     });
 });
@@ -71,9 +72,9 @@ const changeImage = () => {
     const mode = localStorage.getItem('mode');
 
     modeImages.forEach(image => {
-        image.src = image.src.includes("assets/half-moon.png") ? 
-        "assets/sunny.png": 
-        "assets/half-moon.png";
+        image.src = image.src.includes("assets/sunny.png") ? 
+        "assets/half-moon.png": 
+        "assets/sunny.png";
     });
     
     logos.forEach(logo => {
@@ -86,7 +87,6 @@ const changeImage = () => {
 
     if(homeImage) {
         if(glow) {
-            console.log("glow")
             glow.remove();
         } else {
             let glow = document.createElement('div');
@@ -96,16 +96,6 @@ const changeImage = () => {
     } else {
         return;
     }
-
-
-        // if(!homeImage || homeImage && (mode === "dark-mode" || !mode)) {
-    //     let glow = document.createElement('div');
-    //     glow.classList.add('glow');
-    //     homeImage.append(glow);
-    // } else {
-    //     let glow = document.querySelector('.glow');
-    //     glow.remove();
-    // }
 } 
 
 const setLogo = () => {
@@ -128,15 +118,14 @@ const setMode = () => {
     const modeImg = localStorage.getItem('modeImage');
 
     if(modeImg) {
-        console.log(modeImg)
         modeImages.forEach(img => {
-            img.src = modeImg.includes("assets/half-moon.png") ? 
-            "assets/sunny.png" : 
-            "assets/half-moon.png";
+            img.src = modeImg.includes("assets/sunny.png") ? 
+            "assets/half-moon.png" : 
+            "assets/sunny.png";
         });
     } else {
         modeImages.forEach(img => {
-            img.src = "assets/sunny.png";
+            img.src = "assets/half-moon.png";
         });
     };
 }

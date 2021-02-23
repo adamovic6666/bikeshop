@@ -1,11 +1,10 @@
 .scroll-up {
     position: fixed;
-    bottom: 2rem;
+    bottom: 1.5rem;
     right: -2500px;
     height: 3.5rem;
     width: 3.5rem;
-    background-color: var(--color-primary);
-    color: var(--color-scroll-up);
+    background-color: var(--color-red);
     z-index: 3;
     transition: all 1s ease;
     display: flex;
@@ -17,7 +16,21 @@
     opacity: 0;
 
     &--open {
-        right: calc((100vw - 124rem) / 5);
+        right: 1.5rem;
         opacity: 1;
+
+        @include forLargeScreens(900) {
+            bottom: 2rem;
+            right: calc((100vw - 124rem) / 5);
+        }
+
+        span {
+            clip-path: polygon(50% 35%, 95% 100%, 50% 90%, 5% 100%);
+            background-color: #fff;
+            height: 1.75rem;
+            width: 1.75rem;
+            transform: translateY(-.4rem);
+        }
     }
+
 }

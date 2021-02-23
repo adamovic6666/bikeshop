@@ -151,12 +151,11 @@ body {
 
 .scroll-up {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1.5rem;
   right: -2500px;
   height: 3.5rem;
   width: 3.5rem;
-  background-color: var(--color-primary);
-  color: var(--color-scroll-up);
+  background-color: var(--color-red);
   z-index: 3;
   transition: all 1s ease;
   display: flex;
@@ -167,8 +166,18 @@ body {
   font-size: 2rem;
   opacity: 0; }
   .scroll-up--open {
-    right: calc((100vw - 124rem) / 5);
+    right: 1.5rem;
     opacity: 1; }
+    @media (min-width: 56.25em) {
+      .scroll-up--open {
+        bottom: 2rem;
+        right: calc((100vw - 124rem) / 5); } }
+    .scroll-up--open span {
+      clip-path: polygon(50% 35%, 95% 100%, 50% 90%, 5% 100%);
+      background-color: #fff;
+      height: 1.75rem;
+      width: 1.75rem;
+      transform: translateY(-0.4rem); }
 
 .form {
   height: 100%; }
@@ -393,9 +402,14 @@ body {
   .nav__item {
     text-decoration: none;
     cursor: pointer;
-    color: var(--color-primary); }
+    color: var(--color-primary);
+    transition: .4s all;
+    opacity: .9; }
     .nav__item--active {
-      color: var(--color-red); }
+      color: var(--color-red);
+      opacity: 1; }
+    .nav__item:hover, .nav__item:active {
+      opacity: 1; }
   .nav__modes {
     height: 100%;
     position: relative;
@@ -411,7 +425,8 @@ body {
     cursor: pointer;
     align-self: center; }
     .nav__mode img {
-      height: 100%; }
+      height: 100%;
+      filter: invert(1); }
   .nav__pop-up {
     animation: pop-up .8s; }
   .nav__links {
@@ -436,9 +451,6 @@ body {
   grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, max-content)) max-content 50vh;
   grid-template-columns: [full-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end]) [full-end];
   grid-row-gap: 5rem; }
-  @media (min-width: 26.5625em) {
-    .grid--index {
-      grid-template-rows: calc(100vh - 8rem) repeat(5, max-content) 50vh; } }
   @media (min-width: 56.25em) {
     .grid--index {
       grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, 45vh)) max-content 50vh; } }
@@ -461,32 +473,24 @@ body {
   .home__image-container {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    z-index: 2;
-    background-image: url("../assets/bike-w.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 80%;
-    width: 100%;
-    transform: translateY(8rem);
-    position: relative;
-    z-index: 10; }
-    @media (min-width: 28.125em) {
-      .home__image-container {
-        height: 80%;
-        max-height: 55rem;
-        align-self: center;
-        transform: translateY(3rem); } }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+    position: relative; }
     @media (min-width: 50em) {
       .home__image-container {
-        grid-template-columns: 1fr 40%;
-        grid-template-rows: 2rem 70% 1fr 2rem;
         grid-column: 1 / 1;
-        grid-row: 1 / 4;
-        transform: translateX(-3rem); } }
+        grid-row: 1 / 4; } }
     @media (min-width: 68.75em) {
       .home__image-container {
-        transform: translateY(0) scale(1.2); } }
+        transform: translateY(-2rem) scale(1.2); } }
+  .home__image {
+    object-fit: contain;
+    height: 80%;
+    width: 100%;
+    transform: translateY(2rem); }
   .home__heading {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
@@ -735,13 +739,10 @@ body {
         padding-left: 0; } }
   .servicing__image {
     object-fit: contain;
-    height: 20rem;
+    width: 100%;
+    height: 100%;
     transform: translateY(1rem);
     opacity: 0; }
-    @media (min-width: 26.5625em) {
-      .servicing__image {
-        width: 100%;
-        height: 100%; } }
     @media (min-width: 56.25em) {
       .servicing__image {
         height: 100%;
@@ -799,12 +800,12 @@ body {
     .qualities {
       grid-template-columns: repeat(4, 1fr);
       row-gap: 0;
-      max-width: none; } }
+      max-width: 75rem; } }
   .qualities__para {
     grid-row: 1 / 2;
     text-align: center;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     align-self: center;
     color: var(--color-primary);
     margin-bottom: 1.5rem; }
@@ -812,6 +813,12 @@ body {
       .qualities__para {
         grid-column: 1 / -1;
         margin-bottom: 6rem; } }
+  .qualities__para-span {
+    text-decoration: underline;
+    text-underline-position: under;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: var(--color-red); }
   .qualities__box {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
@@ -846,22 +853,28 @@ body {
 .glow {
   position: absolute;
   background: white;
-  width: 30rem;
-  height: 30rem;
+  width: 70%;
+  height: 70%;
+  max-width: 40rem;
+  max-height: 40rem;
   border-radius: 50%;
   z-index: 1;
   opacity: .4;
-  top: 60%;
+  top: calc(55% + 2rem);
   left: 50%;
   transform: translate(-50%, -50%);
   mix-blend-mode: hue;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%); }
-  @media (min-width: 56.25em) {
+  @media (min-width: 50em) {
     .glow {
-      width: 40rem;
-      height: 40rem;
+      max-width: 45rem;
+      max-height: 45rem;
       opacity: .6;
       background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%); } }
+  @media (min-width: 68.75em) {
+    .glow {
+      max-width: 38rem;
+      max-height: 38rem; } }
 
 .grid--contact {
   grid-template-rows: max-content 1fr; }
@@ -965,6 +978,15 @@ body {
         border-bottom: solid 0.5rem var(--color-primary);
         width: 40%;
         position: absolute; } }
+
+.about__link {
+  text-decoration: none;
+  color: var(--color-red);
+  opacity: .8;
+  transition: .2s all;
+  font-weight: 700; }
+  .about__link:hover, .about__link:active {
+    opacity: 1; }
 
 .about__para-box {
   margin: 0 auto;

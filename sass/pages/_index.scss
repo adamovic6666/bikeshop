@@ -4,9 +4,9 @@
     grid-template-columns: [full-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end])[full-end];
     grid-row-gap: 5rem;
 
-    @include forLargeScreens(425) {
-        grid-template-rows: calc(100vh - 8rem) repeat(5, max-content) 50vh;
-    }
+    // @include forLargeScreens(425) {
+    //     grid-template-rows: calc(100vh - 8rem) repeat(5, max-content) 50vh;
+    // }
     
     @include forLargeScreens(900) {
         grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, 45vh)) max-content 50vh;
@@ -22,8 +22,6 @@
     position: relative;
     grid-template-columns: 1fr;
     grid-template-rows: min-content 1fr 2rem;
-
-    // probija
     overflow: hidden; 
 
     @include forLargeScreens(800) {
@@ -37,35 +35,45 @@
     &__image-container {
         grid-column: 1 / -1;
         grid-row: 2 / 3;
-        z-index: 2;
-        background-image: url("../assets/bike-w.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 80%;
-        width: 100%;
-        transform: translateY(8rem);
-        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
         z-index: 10;
+        position: relative;
+        // background-image: url("../assets/bike-w.png");
+        // background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-attachment: scroll;
+        // overflow: hidden;
+        // position: static;
+        // //-webkit-transform: translate3d(0,0,0);
+        // height: 80%;
+        // width: 100%;
+        // transform: translateY(8rem);
 
-        @include forLargeScreens(450) {
-            height: 80%;
-            max-height: 55rem;
-            align-self: center;
-            transform: translateY(3rem);
-        }
+        
+
 
         @include forLargeScreens(800) {
-            grid-template-columns: 1fr 40%;
-            grid-template-rows: 2rem 70% 1fr 2rem;
             grid-column: 1 / 1;
             grid-row: 1 / 4;   
-            transform: translateX(-3rem);
+        //     transform: translateX(-3rem);
+        //     align-self: center;
         }
 
         @include forLargeScreens(1100) {
-            transform: translateY(0) scale(1.2);
+            transform: translateY(-2rem) scale(1.2);
         }
+    }
+
+    &__image {
+        object-fit: contain;
+        height: 80%;
+        width: 100%;
+        transform: translateY(2rem);
+        //max-height: 55rem;
     }
 
     &__heading {
@@ -442,14 +450,16 @@
     &__image {
 
         object-fit: contain;
-        height: 20rem;    
+        //max-height: 20rem;   
+        width: 100%;  
+        height: 100%;       
         transform: translateY(1rem); 
         opacity: 0;
 
-        @include forLargeScreens(425) {
-            width: 100%;  
-            height: 100%;        
-        }
+        // @include forLargeScreens(425) {
+        //     width: 100%;  
+        //     height: 100%;        
+        // }
 
         @include forLargeScreens(900) {
             height: 100%;
@@ -536,14 +546,14 @@
     @include forLargeScreens(900) {
         grid-template-columns: repeat(4, 1fr);
         row-gap: 0;
-        max-width: none;
+        max-width: 75rem;
     }
 
     &__para {
         grid-row: 1 / 2;
         text-align: center;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         align-self: center;
         color: var(--color-primary);
         margin-bottom: 1.5rem;
@@ -552,6 +562,14 @@
             grid-column: 1 / -1;
             margin-bottom: 6rem;
         }
+    }
+
+    &__para-span {
+        text-decoration: underline;
+        text-underline-position: under;
+        margin-top: 1rem;
+        font-size: 1.6rem;
+        color: var(--color-red);
     }
 
     &__box {
@@ -599,22 +617,29 @@
 .glow {
     position: absolute;
     background: white;
-    width: 30rem;
-    height: 30rem;
+    width: 70%;
+    height: 70%;
+    max-width: 40rem;
+    max-height: 40rem;
     border-radius: 50%;
     z-index: 1;
     opacity: .4;
-    top: 60%;
+    top: calc(55% + 2rem);
     left: 50%;
     transform: translate(-50%, -50%);
     mix-blend-mode: hue;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
 
-    @include forLargeScreens(900) {
-        width: 40rem;
-        height: 40rem;
+    @include forLargeScreens(800) {
+        max-width: 45rem;
+        max-height: 45rem;
         opacity: .6;
         background: radial-gradient(ellipse at center, rgba(255,255,255, .7) 0%,rgba(255,255,255, 0) 70%);
+    }
+
+    @include forLargeScreens(1100) {
+        max-width: 38rem;
+        max-height: 38rem;
     }
 }
 
