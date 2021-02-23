@@ -190,7 +190,7 @@ body {
     font-family: inherit;
     color: var(--color-primary);
     font-weight: 700;
-    padding: .5rem 0;
+    padding: .5rem 0 .5rem 1rem;
     border: none;
     border-bottom: 2px solid var(--color-primary);
     background-color: transparent;
@@ -219,7 +219,7 @@ body {
     resize: none;
     background-color: rgba(221, 221, 221, 0.7);
     border: none;
-    padding: 1rem; }
+    padding-left: 1rem; }
     @media (min-width: 56.25em) {
       .form__input-textarea {
         height: 10em; } }
