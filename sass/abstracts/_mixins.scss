@@ -21,3 +21,16 @@
     @media (min-width: $media/16+em) { @content; }
     
 }
+
+@mixin forLargeScreensPortrait($media) {
+
+    @media (min-width: $media/16+em) and (orientation: portrait) { @content; }
+    
+}
+
+@mixin forLargeScreensHorizontal($media) {
+
+    @media (min-width: $media/16+em) and (orientation: landscape) { @content; }
+    
+}
+

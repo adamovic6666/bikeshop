@@ -102,6 +102,10 @@
         padding: 4.5rem;
         transition: all .5s;
 
+        @include forLargeScreensHorizontal(500) {
+            height: 100vh;
+        }
+
         &--open {
             top: 0 !important;
         }
@@ -116,6 +120,10 @@
         height: 100%;
         color:#9f9fa0;
         font-weight: 700;
+
+        @include forLargeScreensHorizontal(500) {
+            justify-content: center;
+        }
     }
 
     &__mobile-navigation-item {

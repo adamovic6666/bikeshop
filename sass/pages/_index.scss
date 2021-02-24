@@ -1,22 +1,27 @@
 .grid--index {
 
-    grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, max-content)) max-content 50vh;
     grid-template-columns: [full-start] repeat(6, [col-start] minmax(min-content, 1fr) [col-end])[full-end];
     grid-row-gap: 5rem;
 
-    // @include forLargeScreens(425) {
-    //     grid-template-rows: calc(100vh - 8rem) repeat(5, max-content) 50vh;
-    // }
-    
-    @include forLargeScreens(900) {
-        grid-template-rows: calc(100vh - 8rem) repeat(4, minmax(35rem, 45vh)) max-content 50vh;
+    grid-template-rows: max-content repeat(4, minmax(42rem, 45vh)) max-content 50vh;
+
+
+    @include forLargeScreens(550) {
+        grid-template-rows: max-content repeat(4, minmax(35rem, max-content)) max-content minmax(35rem, max-content);
     }
+
+    @include forLargeScreens(1100) {
+        grid-template-rows: max-content repeat(4, minmax(35rem, 45vh)) max-content 50vh;
+    }
+
 }
 
 .home {
+
     background-color: var(--front-background);
     grid-column: 1/-1;
     padding: 5rem 2rem 2rem;
+    height: auto;
 
     display: grid;
     position: relative;
@@ -24,8 +29,17 @@
     grid-template-rows: min-content 1fr 2rem;
     overflow: hidden; 
 
+    @include forLargeScreensHorizontal(500) {
+        grid-template-columns: 1fr 35%;
+        padding: 2rem;
+        //transform: translateY(-1rem);
+    }
+
     @include forLargeScreens(800) {
         grid-template-columns: 1fr 35%;
+        padding: 5rem 2rem 2rem;
+        transform: translateY(0);
+        height: calc(100vh - 8rem);
     }
 
     @include forLargeScreens(900) {
@@ -36,31 +50,22 @@
         grid-column: 1 / -1;
         grid-row: 2 / 3;
         display: flex;
+        height: 100%;
         justify-content: center;
         align-items: center;
         overflow: hidden;
         z-index: 10;
         position: relative;
-        // background-image: url("../assets/bike-w.png");
-        // background-size: contain;
-        // background-repeat: no-repeat;
-        // background-position: center;
-        // background-attachment: scroll;
-        // overflow: hidden;
-        // position: static;
-        // //-webkit-transform: translate3d(0,0,0);
-        // height: 80%;
-        // width: 100%;
-        // transform: translateY(8rem);
-
-        
 
 
         @include forLargeScreens(800) {
             grid-column: 1 / 1;
             grid-row: 1 / 4;   
-        //     transform: translateX(-3rem);
-        //     align-self: center;
+        }
+
+        @include forLargeScreensHorizontal(500) {
+            grid-column: 1 / 1;
+            grid-row: 1 / 4;   
         }
 
         @include forLargeScreens(1100) {
@@ -72,8 +77,16 @@
         object-fit: contain;
         height: 80%;
         width: 100%;
-        transform: translateY(2rem);
-        //max-height: 55rem;
+        position: static;
+        transform: translateY(3rem);
+
+        @include forLargeScreens(900) {
+            height: 75%;
+        }
+
+        @include forLargeScreens(1300) {
+            height: 80%;
+        }
     }
 
     &__heading {
@@ -94,7 +107,7 @@
         &::after {
             content: "";
             height: .1rem;
-            border-bottom: solid .2rem var(--color-primary);
+            border-bottom: solid .4rem var(--color-primary);
             width: 40%;
             position: absolute;
             bottom: -2.5rem;
@@ -106,6 +119,15 @@
                 left: 0;
                 transform: translateX(0);
                 top: 25rem;
+                border-bottom: solid .5rem var(--color-primary);
+                width: 50%;
+            }
+
+            @include forLargeScreensHorizontal(500) {
+                height: 1rem;   
+                left: 0;
+                transform: translateX(0);
+                top: 22rem;
                 border-bottom: solid .5rem var(--color-primary);
                 width: 50%;
             }
@@ -123,6 +145,12 @@
             grid-column: 2 / 2;
             grid-row: 2 / 3;    
             text-align: initial;    
+        }
+
+        @include forLargeScreensHorizontal(500) {
+            grid-column: 2 / 2;
+            grid-row: 2 / 3;    
+            text-align: initial;   
         }
 
     }
@@ -152,11 +180,15 @@
         border-color: var(--color-red) transparent transparent transparent;
         justify-self: center;  
         align-self: center;
-        transform: translateY(1rem);
+        transform: translateY(2rem);
         z-index: 2; 
 
         grid-row: 3 / 4;
         grid-column: 1 / -1;
+
+        @include forLargeScreens(800) {
+            transform: translateY(1rem);
+        }
     }
 
     &__back-motives {
@@ -287,8 +319,13 @@
     display: flex;
     flex-direction: column;
 
+    @include forLargeScreensHorizontal(500) {
+        padding-bottom: 6rem;
+    }
+
     @include forLargeScreens(900) {
         flex-direction: row;
+        padding: 3rem;
     }
 
     &__heading {
@@ -450,16 +487,10 @@
     &__image {
 
         object-fit: contain;
-        //max-height: 20rem;   
+        height: 20rem;   
         width: 100%;  
-        height: 100%;       
         transform: translateY(1rem); 
         opacity: 0;
-
-        // @include forLargeScreens(425) {
-        //     width: 100%;  
-        //     height: 100%;        
-        // }
 
         @include forLargeScreens(900) {
             height: 100%;
@@ -577,7 +608,11 @@
         grid-row: 2 / 3;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        
+
+        @include forLargeScreensHorizontal(500) {
+            padding: 0 5rem;
+        }
+    
         @include forLargeScreens(900) {
             grid-template-columns: repeat(4, 1fr);
             grid-column: 1 / -1;
@@ -630,16 +665,23 @@
     mix-blend-mode: hue;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
 
+    @include forLargeScreensHorizontal(500) {
+        width: 30rem;
+        height: 30rem;
+        top: calc(55% + 1.5rem);
+    }
+
     @include forLargeScreens(800) {
         max-width: 45rem;
         max-height: 45rem;
         opacity: .6;
         background: radial-gradient(ellipse at center, rgba(255,255,255, .7) 0%,rgba(255,255,255, 0) 70%);
+        top: calc(55% + 2rem);
     }
 
     @include forLargeScreens(1100) {
-        max-width: 38rem;
-        max-height: 38rem;
+        max-width: 40rem;
+        max-height: 40rem;
     }
 }
 
