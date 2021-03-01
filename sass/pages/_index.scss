@@ -32,18 +32,20 @@
     @include forLargeScreensHorizontal(500) {
         grid-template-columns: 1fr 35%;
         padding: 2rem;
-        //transform: translateY(-1rem);
     }
 
     @include forLargeScreens(800) {
         grid-template-columns: 1fr 35%;
         padding: 5rem 2rem 2rem;
         transform: translateY(0);
-        height: calc(100vh - 8rem);
     }
 
     @include forLargeScreens(900) {
         grid-template-columns: 1fr 40%;
+    }
+
+    @include forLargeScreens(1300) {
+        height: calc(100vh - 8rem);
     }
 
     &__image-container {
@@ -79,14 +81,12 @@
         width: 100%;
         position: static;
         transform: translateY(3rem);
+        max-height: 55rem;
 
         @include forLargeScreens(900) {
-            height: 75%;
-        }
-
-        @include forLargeScreens(1300) {
             height: 80%;
         }
+
     }
 
     &__heading {
@@ -100,7 +100,11 @@
         max-width: 45rem;
         margin: 0 auto;
 
-        @include forLargeScreens(900) {
+        @include forLargeScreens(600) {
+            margin: 0 auto;
+        }
+
+        @include forLargeScreens(800) {
             margin: 0;
         }
 
@@ -127,7 +131,7 @@
                 height: 1rem;   
                 left: 0;
                 transform: translateX(0);
-                top: 22rem;
+                top: 20rem;
                 border-bottom: solid .5rem var(--color-primary);
                 width: 50%;
             }
@@ -210,7 +214,7 @@
             position: absolute;
             bottom: 50%;
             left: 50%;
-            transform: translate(-50%, 75%);
+            transform: translate(-50%, 50%);
             width: 75vw;
             opacity: var(--opacity);
 
@@ -318,10 +322,6 @@
 
     display: flex;
     flex-direction: column;
-
-    @include forLargeScreensHorizontal(500) {
-        padding-bottom: 6rem;
-    }
 
     @include forLargeScreens(900) {
         flex-direction: row;
@@ -652,10 +652,10 @@
 .glow {
     position: absolute;
     background: white;
-    width: 70%;
-    height: 70%;
-    max-width: 40rem;
-    max-height: 40rem;
+    width: 62%;
+    height: 62%;
+    max-width: 35rem;
+    max-height: 35rem;
     border-radius: 50%;
     z-index: 1;
     opacity: .4;
@@ -680,8 +680,10 @@
     }
 
     @include forLargeScreens(1100) {
-        max-width: 40rem;
-        max-height: 40rem;
+        width: 65%;
+        height: 65%;
+        max-width: 35rem;
+        max-height: 35rem;
     }
 }
 

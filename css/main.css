@@ -54,7 +54,7 @@ html[dark-mode] {
   --header-background:#191a1fb9;
   --filter-invert: invert(100%);
   --default-font-size: 1.5rem;
-  --opacity: .1;
+  --opacity: .15;
   --mobile-navigation-color: #191a1f; }
 
 html.transition,
@@ -206,12 +206,13 @@ body {
     width: 100%;
     display: block;
     transition: all .3s; }
-    .form__input:focus {
+    .form__input:focus, .form__input:active {
       outline: none;
       border-bottom: 2px solid green;
-      background-color: transparent; }
+      background: transparent; }
     .form__input:focus:invalid {
-      border-bottom: 2px solid red; }
+      border-bottom: 2px solid red;
+      background: transparent; }
   .form__group:nth-of-type(2) {
     margin-bottom: 5rem; }
   .form__group:nth-of-type(3) label {
@@ -228,7 +229,11 @@ body {
     resize: none;
     background-color: rgba(221, 221, 221, 0.7);
     border: none;
-    padding-left: 1rem; }
+    padding-left: 1rem;
+    border-bottom: 2px solid var(--color-primary); }
+    .form__input-textarea:focus, .form__input-textarea:active, .form__input-textarea:valid {
+      outline: none;
+      background-color: var(--front-background); }
     @media (min-width: 56.25em) {
       .form__input-textarea {
         height: 10em; } }
@@ -243,6 +248,13 @@ body {
     top: -.5rem; }
   .form__input:focus + .form__label {
     transform: translateY(-1rem); }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--color-primary); }
 
 .backdrop {
   position: fixed;
@@ -491,11 +503,13 @@ body {
     .home {
       grid-template-columns: 1fr 35%;
       padding: 5rem 2rem 2rem;
-      transform: translateY(0);
-      height: calc(100vh - 8rem); } }
+      transform: translateY(0); } }
   @media (min-width: 56.25em) {
     .home {
       grid-template-columns: 1fr 40%; } }
+  @media (min-width: 81.25em) {
+    .home {
+      height: calc(100vh - 8rem); } }
   .home__image-container {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
@@ -522,11 +536,9 @@ body {
     height: 80%;
     width: 100%;
     position: static;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+    max-height: 55rem; }
     @media (min-width: 56.25em) {
-      .home__image {
-        height: 75%; } }
-    @media (min-width: 81.25em) {
       .home__image {
         height: 80%; } }
   .home__heading {
@@ -538,7 +550,10 @@ body {
     z-index: 2;
     max-width: 45rem;
     margin: 0 auto; }
-    @media (min-width: 56.25em) {
+    @media (min-width: 37.5em) {
+      .home__heading {
+        margin: 0 auto; } }
+    @media (min-width: 50em) {
       .home__heading {
         margin: 0; } }
     .home__heading::after {
@@ -563,7 +578,7 @@ body {
           height: 1rem;
           left: 0;
           transform: translateX(0);
-          top: 22rem;
+          top: 20rem;
           border-bottom: solid 0.5rem var(--color-primary);
           width: 50%; } }
       @media (min-width: 56.25em) {
@@ -623,7 +638,7 @@ body {
       position: absolute;
       bottom: 50%;
       left: 50%;
-      transform: translate(-50%, 75%);
+      transform: translate(-50%, 50%);
       width: 75vw;
       opacity: var(--opacity); }
       @media (min-width: 50em) {
@@ -687,9 +702,6 @@ body {
   position: relative;
   display: flex;
   flex-direction: column; }
-  @media (min-width: 31.25em) and (orientation: landscape) {
-    .servicing {
-      padding-bottom: 6rem; } }
   @media (min-width: 56.25em) {
     .servicing {
       flex-direction: row;
@@ -914,10 +926,10 @@ body {
 .glow {
   position: absolute;
   background: white;
-  width: 70%;
-  height: 70%;
-  max-width: 40rem;
-  max-height: 40rem;
+  width: 62%;
+  height: 62%;
+  max-width: 35rem;
+  max-height: 35rem;
   border-radius: 50%;
   z-index: 1;
   opacity: .4;
@@ -940,8 +952,10 @@ body {
       top: calc(55% + 2rem); } }
   @media (min-width: 68.75em) {
     .glow {
-      max-width: 40rem;
-      max-height: 40rem; } }
+      width: 65%;
+      height: 65%;
+      max-width: 35rem;
+      max-height: 35rem; } }
 
 .grid--contact {
   grid-template-rows: max-content 1fr; }

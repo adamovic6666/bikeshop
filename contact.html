@@ -82,22 +82,22 @@
     <div class="grid grid--contact">
         <h1 class="heading heading--primary contact__heading">Kontaktirajte nas</h1>
         <div class="contact__form">
-            <form action="php/contact-form.php" class="form" method="POST">
+            <form action="contact-form.php" class="form" method="POST">
                 <div class="form__group">
-                    <input type="text" class="form__input" id="name" required>
+                    <input type="text" class="form__input" name="name" id="name" required>
                     <label for="name" class="form__label">Ime i prezime</label>
                 </div>
 
                 <div class="form__group">
-                    <input type="email" class="form__input" id="email" required>
+                    <input type="email" class="form__input" name="email" id="email" required>
                     <label for="email" class="form__label">Email adresa</label>
                 </div>
                 <div class="form__group">
-                    <textarea name="textarea" class="form__input form__input-textarea" id="textarea" cols="30" rows="10" required></textarea>
-                    <label for="textarea" class="form__label">Poruka</label>
+                    <textarea name="message" class="form__input form__input-textarea" id="message" cols="30" rows="10" required></textarea>
+                    <label for="message" class="form__label">Poruka</label>
                 </div>
                 <div class="form__group">
-                    <a href="#" class="btn" type="submit">Potvrdi</a>
+                    <button class="btn" type="submit" value="Submit">Potvrdi</button>
                 </div>
             </form>
         </div>
